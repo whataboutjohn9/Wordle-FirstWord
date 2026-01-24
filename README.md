@@ -1,6 +1,7 @@
 A series of SQL queries aimed at improving the quality of the first guess in Wordle.
 
 There are three tables.
+
 A list of all words found here (15,921 five-letter words):
 https://github.com/dwyl/english-words/tree/master
 
