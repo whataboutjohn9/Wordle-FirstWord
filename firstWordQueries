@@ -1,0 +1,125 @@
+-- 1. Gather Results and Export Results to Data Analysis Tool
+-- 1A. Get Frequency of Past Winning Words Letter Position 1-5
+SELECT LEFT(word,1) as "First Letter", count(*)
+FROM `words_winners`
+GROUP BY 1
+ORDER BY 2 DESC 
+
+SELECT SUBSTR(word,2,1) as "Second Letter", count(*)
+FROM `words_winners`
+GROUP BY 1
+ORDER BY 2 DESC
+
+SELECT SUBSTR(word,3,1) as "Third Letter", count(*)
+FROM `words_winners`
+GROUP BY 1
+ORDER BY 2 DESC
+
+SELECT SUBSTR(word,4,1) as "Fourth Letter", count(*)
+FROM `words_winners`
+GROUP BY 1
+ORDER BY 2 DESC
+
+SELECT SUBSTR(word,5,1) as "Last Letter", count(*)
+FROM `words_winners`
+GROUP BY 1
+ORDER BY 2 DESC
+
+-- 1B. Get Frequency of All Words Letter Position 1-5 Excluding Past winning words
+SELECT SUBSTR(all_words,1,1) as "First Letter", count(*)
+FROM words_all AS wa
+WHERE CHAR_LENGTH(wa.all_words) = 5
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ );
+
+ SELECT SUBSTR(all_words,2,1) as "Second Letter", count(*)
+FROM words_all AS wa
+WHERE CHAR_LENGTH(wa.all_words) = 5
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ );
+ SELECT SUBSTR(all_words,3,1) as "Third Letter", count(*)
+FROM words_all AS wa
+WHERE CHAR_LENGTH(wa.all_words) = 5
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ );
+
+ SELECT SUBSTR(all_words,4,1) as "Fourth Letter", count(*)
+FROM words_all AS wa
+WHERE CHAR_LENGTH(wa.all_words) = 5
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ );
+
+ SELECT SUBSTR(all_words,5,1) as "Fifth Letter", count(*)
+FROM words_all AS wa
+WHERE CHAR_LENGTH(wa.all_words) = 5
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ );
+
+-- 2. Construct Words based on desired frequencies and factors
+-- 2A. Starter Word Guess In One, rooted in positioning, leaving out trailing 's' 21 words as of 2026-01-24
+ SELECT wa.all_words as "Starter Words"
+FROM words_all AS wa
+WHERE CHAR_LENGTH(TRIM(wa.all_words)) = 5
+ AND SUBSTR(wa.all_words, 1,1) IN ('a','b','c','d','m','p','s','t') -- over 5%
+ AND SUBSTR(wa.all_words, 2,1) IN ('a','o','e','i','u','r','l') -- over 5%
+ AND SUBSTR(wa.all_words, 3,1) IN ('a','e','i','l','n','o','r') -- over 5%
+ AND SUBSTR(wa.all_words, 4,1) IN ('a','e','i','l','n','o','r','t') -- over 5%
+ AND SUBSTR(wa.all_words, 5,1) IN ('a','d','e','n','r','t','y') -- over 5%
+ -- no duplicated letters:
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,2,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,3,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,3,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,3,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,3,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,4,1) <> SUBSTR(wa.all_words,5,1)
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ )
+ AND wa.all_words IN (
+ SELECT wc.common_word
+ FROM words_common AS wc)
+ ;
+
+ -- 2B. Starter Word, Three highest probability drifts (S, pos 1 (11%), A pos 2 (18.65%), E pos 3 (16.12%)) -- 
+  SELECT wa.all_words as "Starter Words"
+FROM words_alpha AS wa
+WHERE CHAR_LENGTH(TRIM(wa.all_words)) = 5
+ AND SUBSTR(wa.all_words, 1,1) IN ('s')
+ AND SUBSTR(wa.all_words, 2,1) IN ('a')
+ AND SUBSTR(wa.all_words, 3,1) IN ('r','l','t','n')
+ AND SUBSTR(wa.all_words, 4,1) IN ('e')
+ AND SUBSTR(wa.all_words, 5,1) IN ('r','l','t','n')
+ -- no duplicated letters:
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,2,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,3,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,1,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,3,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,2,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,3,1) <> SUBSTR(wa.all_words,4,1)
+ AND SUBSTR(wa.all_words,3,1) <> SUBSTR(wa.all_words,5,1)
+ AND SUBSTR(wa.all_words,4,1) <> SUBSTR(wa.all_words,5,1)
+ AND wa.all_words NOT IN (
+ SELECT ww.winners_words
+ FROM words_winners AS ww
+ )
+ ;
+
+
+
