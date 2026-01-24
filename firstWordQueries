@@ -66,7 +66,8 @@ WHERE CHAR_LENGTH(wa.all_words) = 5
  );
 
 -- 2. Construct Words based on desired frequencies and factors
--- 2A. Starter Word Guess In One, rooted in positioning, leaving out trailing 's' 21 words as of 2026-01-24
+-- 2A. Starter Word - most likely to Guess In One try, rooted in positioning, 
+-- leaving out trailing 's' and including only common words 21 words as of 2026-01-24
  SELECT wa.all_words as "Starter Words"
 FROM words_all AS wa
 WHERE CHAR_LENGTH(TRIM(wa.all_words)) = 5
@@ -95,7 +96,8 @@ WHERE CHAR_LENGTH(TRIM(wa.all_words)) = 5
  FROM words_common AS wc)
  ;
 
- -- 2B. Starter Word, Three highest probability drifts (S, pos 1 (11%), A pos 2 (18.65%), E pos 3 (16.12%)) -- 
+ -- 2B. Starter Word, Most likely to eliminate the most postential words for guess 2 and still give a chance to win in one. 
+ -- Three highest probability drifts (S, pos 1 (11%), A pos 2 (18.65%), E pos 3 (16.12%)) and removing common restriction 
   SELECT wa.all_words as "Starter Words"
 FROM words_alpha AS wa
 WHERE CHAR_LENGTH(TRIM(wa.all_words)) = 5
