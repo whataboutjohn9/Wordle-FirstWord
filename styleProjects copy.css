@@ -1,0 +1,1022 @@
+/* Basic Reset for Consistency */
+:root {
+  box-sizing: border-box;
+
+    --primary-color:#F1F2F6;
+    --text-color: #003366;
+    --text-alternate: #323232;
+    --bold-blue: #007BFF;
+    --header-job-class: #242728;
+    --text-job-class: #323232;
+
+   --footer-nav: #007A33;  /* cubs ivy */
+
+    --red-job: #C93E3E;
+    --yellow-job: #FFC107;
+    --green-job: #4CAF50;
+
+    --chicago-white: #ffff;
+    --chicago-red: #EF002B;
+    --chicago-blue: #41B6E6;
+
+    --header-color6: #A84A4A;
+    --header-color2: #002040;
+    --header-color3: #a86262;
+    --header-color4: #3f464d;
+    --header-color5:#5c6670;
+    --background-alternate:#c9e2f5; 
+
+    --table-bold-text: #111;
+
+    --text-color-callout:#002b55;
+    --number-color-callout:#d27e00;
+
+    --link-color:blue;
+    --github:black;
+
+    --bee-white: #ffff;
+    --bee-header: #000;
+    --bee-border: #eee;
+    --bee-labels: #666;
+    --bee-input-border: #f8cd05;
+    --bee-clear-button: #e0e0e0;
+    --bee-clear-button-text: #555;
+    --bee-results-background: #f6f4f4;
+    --bee-results-border-bottom: #f0f0f0;
+    --bee-panagram-color-background: #fff9e6;
+    --bee-panagram-color: #b48608;
+
+    --bee-primary:#f8cd05;
+    --bee-text:#3b3b3b;
+
+
+    --wordle-gray: #787c7e;
+    --wordle-green: #6aaa64;
+    --wordle-yellow: #c9b458;
+    --wordle-table: #fff; /*6aaa64 light mode text #fff*/
+    --wordle-table-border: #3a3a3c;
+
+    
+    --wordle-text: #121212;
+    --wordle-button-text: #f8f8f8;
+    
+}
+.darkmode{
+    --primary-color:#1a1919;
+    --text-color:#E0E0E0;
+    --text-alternate: #f1efef;
+    --bold-blue: #007BFF;
+
+    --red-job: #E03C32;
+    --yellow-job: #FFD301;
+    --green-job: #7BB662;
+
+    --header-job-class: #3b3b3b;
+    --header-color6: #e86464;
+    --header-color2: #f4f9f9;
+    --header-color3: #e85f5f;
+    --header-color4: #fac2a2;
+    --header-color5: #f9cfb7;
+    --background-alternate:#0e0e0e; 
+    --table-bold-text: #e3f6e6;
+
+     --footer-nav: #f8cd05;
+
+    --accent-strong-alt:#FF8C00; 
+    --text-color-callout:#98e0fc;
+    --number-color-callout:#fa9702;
+
+    --link-color:rgb(214, 234, 252);
+
+    --github:white;
+
+    --bee-white: #1E1E1E;
+    --bee-header: #ffffff;
+    --bee-labels: #a0a0a0;
+    --bee-input-border: #f8cd05;
+    --bee-border: #bbbbbb;
+    --bee-input-background: #2D2D2D;
+    --bee-clear-button: #3A3A3A;
+    --bee-clear-button-text: #ffffff;
+    --bee-results-background: #2a2a2a;
+    --bee-results-border-bottom: #f0f0f0;
+    --bee-panagram-color-background: #403a1e;
+    --bee-panagram-color: #b48608;
+
+    --bee-primary: #3b3b3b;
+    --bee-text: #f8cd05;
+
+    --wordle-gray: #787c7e;
+    --wordle-green: #538d4e; /* text #f8f8f8 */
+    --wordle-yellow: #b59f3b; /* light mode #c9b458 */
+    --wordle-table: #121213;
+    --wordle-table-border: #3a3a3c;
+
+    --wordle-text: #f8f8f8;
+    --wordle-button-text: #f8f8f8;
+}
+
+body{
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.bee-colors{
+  color: var(--bee-text);
+  background-color: var(--bee-primary);
+}
+
+.callout-text{
+    color: var(--text-color-callout);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.callout-number{
+    color: var(--number-color-callout);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.link{
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+
+
+
+#dark-mode-toggle{
+
+    background: none;
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+}
+#dark-mode-toggle svg:last-child{
+display: none;
+}
+.darkmode #dark-mode-toggle svg:first-child{
+    display:none;
+}
+.darkmode #dark-mode-toggle svg:last-child{
+    display:block;
+}
+/* Default: show light image, hide dark image */
+.dark-mode-image {
+  display: none;
+}
+/* When the parent (e.g., body) has the dark-theme class: */
+body.darkmode .light-mode-image {
+  display: none;
+}
+
+body.darkmode .dark-mode-image {
+  display: block;
+}
+
+
+
+svg{
+    /* color: var(--text-color); */
+    border: none;
+    outline: none;
+    stroke: none;
+    background-color: transparent;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+header a{
+    padding-left: 1vw;
+    padding-top: .5vw;
+}
+
+header svg{
+  color: var(--text-color);
+}
+
+nav{
+  justify-items: right;
+  padding: 1vw;
+
+}
+
+
+.nav-list {
+    list-style: none; /* Removes the bullet point */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item-back {
+    display: flex;
+    align-items: center; /* This centers the X and text vertically */
+    gap: 8px;           /* Adds a nice space between the X and the text */
+    color: var(--text-color); /* This forces the SVG to match your nav color */
+    cursor: pointer;
+}
+
+.nav-item-back a {
+    text-decoration: none;
+    color: inherit;      /* The link will now match the X's color */
+    font-weight: 500;
+    display: inline-flex;
+    gap: 6px;
+}
+
+.nav-item-back svg {
+    display: block;
+}
+
+
+
+/* Optional: change color of both on hover */
+.nav-item-back:hover {
+    background-color: var(--chicago-blue);
+    color: var(--chicago-white);
+    font-weight: bold;    /* Matches your project badge blue */
+}
+
+.red-job{
+  background-color: var(--red-job);
+}
+.yellow-job{
+  background-color: var(--yellow-job);
+}
+.green-job{
+  background-color: var(--green-job);
+}
+.horizontal-line {
+  /* Defines the line as a 1px solid black border at the bottom of the div */
+  border-bottom: 1px solid var(--text-color);
+  /* Ensure the div spans the full width of its container */
+  width: 100%;
+}
+.data-insight{
+  color: var(--bold-blue);
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+/* ------------------------------------------Global Body Styles---------------------- */
+body {
+  margin: 0;
+  padding: 1vw 1vw;
+  color: var(--text-color);
+  line-height: 1.5;
+  background-color: var(--primary-color);
+  list-style: none;
+}
+@media (max-width: 900px){
+body{
+ line-height: 1.25;
+}
+}
+
+body{
+  margin-top: 0;
+  padding-left: 2vw;
+}
+
+
+/* Base Typography */
+h1{
+  text-align: center;
+}
+h5{
+  margin-bottom: 0.1rem;
+  padding-left: 1.4vw;
+  margin-top:0;
+  font-size: 1.1em;
+  color: var(--header-color5)
+}
+h6
+ {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  color: var(--header-color6);
+  padding: 0vw 0vw;
+}
+h2{
+  color: var(--header-color2);
+  margin-bottom: 0rem;
+  margin-top: 0;
+  padding: 0 0 0 1vw;
+  font-size: 1.3em;
+}
+h3{
+  color: var(--header-color3);
+  margin-bottom: 0rem;
+  padding: 0 0 0 1.2vw;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+h4{
+  margin-bottom: 0.1rem;
+  padding-left: 1.3vw;
+  margin-top:0;
+  color: var(--header-color4);
+  font-size: 1.1em;
+}
+p{
+  padding-left: 1.5vw;
+  padding-top: 1vw;
+  margin-top: 0;
+}
+
+/* ------------------- Job Stats Responsive----------------- */
+.jobstats{
+  padding: 0 10vw;
+}
+
+/*-------------------- Header Style ------------------------*/
+header {
+  display: flex;
+  /* Enables Flexbox for the header container */
+  justify-content: space-between;
+  /* Pushes the logo to the left and links to the right */
+  align-items: center;
+  /* Vertically centers the items */
+  padding: .5vw 0vw 0vw 0vw;
+  overflow: hidden;
+  /* Ensures content doesn't overflow */
+  width: 100%;
+  max-height: 20vw;
+  margin-bottom: 0vw;
+  text-decoration: none;
+  margin: 0;
+  border-bottom: 1px solid var(--text-color);
+  color: var(--text-color);
+}
+
+header li a {
+
+  text-decoration: none;
+  margin: 1vw;
+  /* Spacing for the links */
+  font-size: 1.1em;
+  transition: 0.5s;
+  
+}
+
+header li a:hover {
+  color: var(--hover-color)
+}
+/*-------------- End Header Style -------------*/
+
+/* -------------- Mobile responsiveness update --------------------- */
+@media screen and (min-width:900px){
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-top: 0vw;
+}
+body{
+padding: 0 0;
+}
+}
+@media screen and (max-width:505px){
+  h1 {
+  text-align: center;
+  padding: .5vw;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+h2 {
+  padding-left:0;
+  padding-bottom: 0;
+}
+
+h3 {
+  padding-left: 1vw;
+}
+
+h4 {
+  padding-left: 1vw;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 2.1vw;
+
+}
+body{
+  padding: 0;
+}
+}
+
+
+----------------------------------- /* End of Mobile Responsiveness*/---------------------------
+.table-responsive {
+  overflow-x: auto; /* Adds horizontal scrollbar when content is too wide */
+  width: 100%; /* Ensures the container takes the full width */
+}
+
+/* Optional: Basic table styling for better appearance */
+table {
+  width: 100%; /* Can be set to a fixed px width for large tables with max-width: 100% for mobile */
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Prevents text from wrapping within cells */
+}
+
+
+
+a {
+  color: inherit;
+  /* Inherit color from parent */
+  text-decoration: none;
+  /* Remove default underline */
+}
+
+/* -------------------------------------Simple Image Responsiveness ----------------------------------*/
+img {
+  max-width: 100%;
+  max-height: auto;
+  object-fit: contain;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    text-decoration: none;
+    flex-direction: row;
+    padding-top: 1vw;
+
+}
+.social-icons ul{
+  display: flex;
+  gap: 1vw;
+
+}
+.social-icons li{
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+}
+.social-icons a {
+
+    text-decoration: none;
+    display: flex;
+}
+.social-icons a:hover {
+    opacity: 50%;
+}
+
+.footercontainer {
+    display: flex; /* Enables Flexbox for the footer container */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content:center; /* Centers items vertically */
+    padding: .2vw 0;
+}
+
+.footerNav {
+    margin: .1vw 0;
+    list-style: none; /* Removes default bullet points */
+    display: flex; /* Enables Flexbox for the list items */
+    align-items: center;
+}  
+
+.footerNav ul {
+    display: flex; /* Enables Flexbox for the list items */
+    align-items: center;
+}
+.footerNav li a {
+    color: var(--footer-nav);
+    text-decoration: none;
+    margin: 1vw;   /* Spacing for the links */
+    font-size: 1.1em;
+    transition: 0.5s;
+}
+.footerNav li a:hover {
+    color: var(--hover-color)
+}   
+
+.footerbottom {
+    color: var(--text-color);
+    text-align: center;
+    padding: 1vw;
+    font-size: smaller;
+}
+
+/*----------------------------------------Tables Job Apps-------------------------------------*/
+table {
+  border:2px solid var(--table-bold-text);
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: var(--text-color);
+  outline: var(--text-alternate);
+}
+.table-container{
+  padding: 3vw 0vw 3vw 0vw;
+}
+
+td {
+  padding: .5vw 3vw;
+  text-align: center;
+  border-bottom: 1.5px solid var(--text-alternate);
+}
+
+thead {
+  font-weight: bolder;
+  background-color: var(--header-color6);
+  font-size: 1em;
+  border: 1px solid #111;
+}
+
+th {
+  color: var(--text-color);
+  background-color: var(--background-alternate);
+  font-size: 1em;
+  border-bottom: 1px solid var(--text-color);
+  text-wrap-mode: wrap;
+}
+
+tfoot {
+  font-weight: bold;
+  color: var(--table-bold-text);
+  background-color: var(--background-alternate);
+}
+
+table tr th:first-child,
+table tr td:first-child {
+  font-weight: bold;
+  color: var(--text-color);
+}
+/* ------------------------------------table responsive------------------------------------- */
+@media (max-width: 900px){
+  table{
+  border: 2px solid var(--text-alternate);
+  width: 100%;
+  border-collapse: collapse;
+  }
+  table thead tr{
+    display: none;
+  }
+  table tr{
+    display: block;
+  }
+  table th table td{
+    padding: .5em;
+  }
+  table td{
+    text-align: right;
+    display: block;
+    font-size: 1em;
+  }
+  table td::before{
+   content: attr(data-title); 
+   float: left;
+  }
+
+}
+
+/* ---------------------------------------grid responsiveness ------------------------------------*/
+
+@media (min-width: 901px){
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  "box-1 box-2 box-3";
+  column-gap: 1vw;
+  justify-content: center;
+  color: var(--text-job-class);
+  text-align: center;
+  padding-top: 0;
+  padding: 1vw 1vw 0 1vw;
+}
+}
+
+
+@media (max-width: 900px){
+  .grid-container{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "box-1"
+    "box-2"
+    "box-3";
+  column-gap: 1vw;
+  justify-content: center;
+  color: var(--primary-color);
+  text-align: center;
+  padding-top: 3vw;
+  padding: 0;
+
+  }
+  #dark-mode-toggle{
+
+    background: none;
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+}
+#dark-mode-toggle svg:last-child{
+display: none;
+}
+.darkmode #dark-mode-toggle svg:first-child{
+    display:none;
+}
+.darkmode #dark-mode-toggle svg:last-child{
+    display:block;
+}
+/* Default: show light image, hide dark image */
+.dark-mode-image {
+  display: none;
+}
+/* When the parent (e.g., body) has the dark-theme class: */
+body.darkmode .light-mode-image {
+  display: none;
+}
+
+body.darkmode .dark-mode-image {
+  display: block;
+}
+
+
+header a{
+    padding-left: 1vw;
+    padding-top: .5vw;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+}
+.box {
+  color: var(--text-job-class);
+  border-radius: 8%;
+  border: 1px solid var(--text-color);
+
+
+}
+
+#header {
+  color: var(--text-job-class);
+  text-align: center;
+  padding: 0 0 .0 0;
+  font-weight: bold;
+  font-size: .8em;
+}
+#header2 {
+  color: var(--text-job-class);
+  padding: 0 0 0 0;
+  font-weight:normal;
+  font-size: 1.3em;
+  text-wrap: pretty;
+}
+
+#bigpercent{
+  font-size: 2.2em;
+  color: var(--header-job-class);
+  padding: 0;
+  margin: 0;
+}
+
+.wordle-wrap{
+  padding: 1vw 15vw;
+}
+.wordle-img{
+  padding: 0vw 5vw;
+}
+.wordle-img img:hover{
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+@media screen and (max-width:600px){
+ .wordle-wrap{
+  padding: .5vw .5vw;
+} 
+}
+@media screen and (max-width:600px){
+ .wordle-img{
+  padding: .5vw .5vw;
+} 
+}
+
+/*----------------------- Helper Bee ------------------------------*/
+
+/* Base Styles */
+main.bee-page { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  max-width: 600px; 
+  margin: 40px auto; 
+  padding: 20px; 
+  background: var(--primary-color); 
+  color: var(--bee-text);
+        }
+#bee-app h2 { 
+  text-align: center; margin-top: 0; 
+  color: var(--bee-header);
+  padding-bottom: 1vw;
+} 
+ .card { 
+  background: var(--bee-white); 
+  padding: 2rem; 
+  border-radius: 16px; 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+  color: var(--bee-text);
+  }
+
+
+
+  /* Input Styling */
+  .input-row { display: flex; gap: 15px; margin-bottom: 20px; }
+  .input-group { flex: 1; }
+        
+  label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; color: var(--bee-labels); }
+        
+  input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 2px solid var(--bee-border); 
+    color: var(--bee-header);
+    border-radius: 8px; 
+    font-size: 1.1rem; 
+    box-sizing: border-box;
+    background-color: var(--bee-input-background);
+    transition: border-color 0.2s;
+    }
+        
+  input:focus { outline: none; border-color: var(--bee-input-border); }
+
+  /* Button Styling */
+    .button-group { display: flex; gap: 10px; }
+        
+    button { 
+      padding: 12px 20px; 
+      border: none; 
+      border-radius: 8px; 
+      font-weight: bold; 
+      cursor: pointer; 
+      font-size: 1rem;
+      transition: transform 0.1s, opacity 0.2s;
+      }
+
+    .btn-solve { background: var(--bee-input-border); color: var(--bee-header); flex: 3; }
+    .btn-clear { background: var(--bee-clear-button); color: var(--bee-clear-button-text); flex: 1; }
+        
+    button:active { transform: scale(0.98); }
+    button:hover { opacity: 0.9; }
+
+    /* Results Grid */
+    #results { 
+      margin-top: 15px; 
+      padding: 0;
+      list-style: none;
+      column-count: 2; /* Creates two columns for words */
+      column-gap: 20px;
+      }
+
+    #results li { 
+      padding: 6px 10px; 
+      margin-bottom: 4px;
+      background: var(--bee-results-background);
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      border-bottom: 1px solid var(--bee-results-border-bottom);
+      color: var(--text-color);
+      }
+
+    /* Pangram Highlighting */
+    .pangram { 
+      background-color: var(--bee-panagram-color-background) !important; 
+      color: var(--bee-panagram-color); 
+      font-weight: bold; 
+      border: 1px solid var(--bee-input-border) !important;
+      }
+
+    #copy-link a {
+      color: var(--bee-labels);
+      text-decoration: none;
+      font-weight: 600;
+      }
+      #copy-link a:hover { text-decoration: underline; }
+
+#starterDisplay {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 2.5rem;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+/* -------------- Wordle V2 ---------------------- */
+
+/* 1. Row State Styling */
+.winner-gold { 
+  background-color: var(--wordle-yellow) !important; 
+  color: var(--wordle-text); 
+  font-weight: bold; 
+}
+.repeat-gray { 
+  background-color: var(--wordle-gray) !important; 
+  color: var(--wordle-text); 
+  opacity: 0.8; 
+}
+
+/* 2. Table Core Structure */
+.wordle-table { 
+  width: 100%; 
+  min-width: 350px;
+  border-collapse: collapse; 
+  margin-top: 10px;
+  table-layout: auto;
+  display: table !important; 
+}
+
+.wordle-table tr {
+    display: table-row !important;
+}
+
+.wordle-table td, 
+.wordle-table th { 
+  padding: 12px 10px; 
+  border: 1px solid var(--wordle-table-border); 
+  text-align: center;
+  background-color: transparent; /* Allows row color to show through */
+  color: var(--wordle-text);
+  display: table-cell !important; 
+  vertical-align: middle;
+}
+
+/* 3. Specific Table Elements */
+.wordle-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--wordle-table); 
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.wordle-table td {
+    padding: 8px 15px;
+    border-bottom: 1.5px solid var(--wordle-table-border);
+    text-transform: uppercase;
+    font-family: 'Clear Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+.wordle-table td strong {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.wordle-table td:nth-child(2) {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 4. Column Widths */
+.wordle-table th:nth-child(1) { width: 35%; }
+.wordle-table th:nth-child(2) { width: 30%; }
+.wordle-table th:nth-child(3) { width: 35%; }
+
+/* Adaptive Column Logic */
+.wordle-table tr th:only-child, 
+.wordle-table th:first-child:nth-last-child(2),
+.wordle-table th:first-child:nth-last-child(2) ~ th {
+    width: 50%;
+}
+
+/* 5. Tool Cards Grid */
+.wordle-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.tool-card {
+    background: var(--wordle-table); 
+    border: 1px solid var(--wordle-table-border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--wordle-text);
+    transition: transform 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: #2c3e50;
+}
+
+.word-display {
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: var(--wordle-green);
+}
+
+/* 6. Controls & Sticky Header */
+.utility-controls {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-color); 
+    z-index: 100; 
+    padding: 15px 0;
+    margin-top: -1px; 
+    border-bottom: 1px solid var(--wordle-table-border);
+}
+
+#wordSearch {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 7. Buttons */
+.btn-primary, .btn-secondary, .btn-thirdly {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-primary { background: var(--wordle-green); color: var(--wordle-button-text); }
+.btn-secondary { background: var(--wordle-gray); color: var(--wordle-button-text); }
+.btn-thirdly { background: var(--wordle-yellow); color: var(--wordle-button-text); }
+
+.filter-btn { transition: opacity 0.2s; }
+.filter-btn:hover { opacity: 0.8; }
+
+.btn-gold { background-color: var(--wordle-yellow); }
+.btn-gray { background-color: var(--wordle-gray); }
+.btn-green { background-color: var(--wordle-green); }
+
+/* 8. Results Container */
+#resultsContainer {
+    overflow-x: auto;
+    overflow-y:auto;
+    border: 1px solid var(--wordle-table-border);
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 15px; 
+    box-sizing: border-box;
+    max-height: 500px; 
+}
+
+/* 9. Mobile Adjustments */
+@media screen and (max-width: 600px) {
+    .wordle-table { min-width: 300px; }
+    
+    .filter-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        display: flex !important;
+        justify-content: flex-start;
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .wordle-v2-grid { grid-template-columns: 1fr; }
+
+    .wordle-table td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+    .wordle-table td strong { font-size: .95rem; }
+    .wordle-table td:last-child { white-space: nowrap; }
+}
+
+.divider { margin: 40px 0; border: 0; border-top: 1px solid #eee; }
+
