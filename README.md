@@ -38,6 +38,44 @@ The utility maintains a synced dictionary to stay up-to-date with the official N
 3. **Filter Results:** Use the toggle buttons (**Winners**, **Repeats**, **Available**) to clean up the data table for easier browsing.
 4. **Load Groundhog Day** View all words that users selected as a starter word on Groundhog Day.
 
+Since you have uploaded the `.csv` files as well as the `.sql` exports, it’s definitely worth mentioning them! It gives users two ways to get your data: they can either run the SQL scripts directly or import the CSVs into their preferred spreadsheet or database tool.
+
+Here is a revised **File Breakdown** section that includes both the PHP logic and the data exports (SQL/CSV).
+
+---
+
+## 📂 Project Structure & File Breakdown
+
+This repository provides a complete full-stack environment. All data was curated from Wordle console logs and organized into the following structures:
+
+### 🗄️ Data Exports (SQL & CSV)
+
+I have provided the data in two formats for flexibility. You can use the `.sql` files to recreate the tables automatically or the `.csv` files for manual analysis.
+
+| Feature | SQL Script | CSV Data |
+| --- | --- | --- |
+| **WordleBot 3200** | `create_wordlebot3200.sql` | `wordlebot3200.csv` |
+| **Past Winners** | `create_winnersv2.sql` | `wordlewinnersv2.csv` |
+| **Groundhog Day** | `create_table_wordlegroundhog.sql` | `wordlegroundhog.csv` |
+
+### ⚙️ Backend Logic (PHP)
+
+These scripts bridge the gap between your MySQL database and the frontend:
+
+* `get_RandomStarter.php`: Fetches a curated starter word.
+* `get_FullWordList.php`: Retrieves the massive WordleBot dictionary.
+* `get_groundhog.php`: Loads the themed search list.
+* `config.example.php`: Template for your database credentials.
+
+### 💻 Frontend & Styling
+
+* `wordlestarterv2.html`: The main dashboard.
+* `wordle-list.js`: Handles AJAX requests to the PHP scripts and manages UI state.
+* `styleProjects.css`: Dark-mode themed styling for the utility.
+
+---
+
+
 ## ⚙️ Installation & Setup
 
 Because this utility uses **PHP** and **MySQL**, it requires a local server environment (like XAMPP, MAMP, or WAMP) to run.
