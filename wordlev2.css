@@ -1,0 +1,240 @@
+/* Basic Reset for Consistency */
+:root {
+  box-sizing: border-box;
+
+    --primary-color:#F1F2F6;
+    --text-color: #003366;
+
+    --wordle-gray: #787c7e;
+    --wordle-green: #6aaa64;
+    --wordle-yellow: #c9b458;
+    --wordle-table: #fff; /*6aaa64 light mode text #fff*/
+    --wordle-table-border: #3a3a3c;
+    
+    --wordle-text: #121212;
+    --wordle-button-text: #f8f8f8;
+}
+.darkmode{
+    --primary-color:#1a1919;
+    --text-color:#E0E0E0;
+
+    --wordle-gray: #787c7e;
+    --wordle-green: #538d4e; /* text #f8f8f8 */
+    --wordle-yellow: #b59f3b; /* light mode #c9b458 */
+    --wordle-table: #121213;
+    --wordle-table-border: #3a3a3c;
+
+    --wordle-text: #f8f8f8;
+    --wordle-button-text: #f8f8f8;
+}
+
+body{
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+
+/* -------------- Wordle V2 ---------------------- */
+
+/* 1. Row State Styling */
+.winner-gold { 
+  background-color: var(--wordle-yellow) !important; 
+  color: var(--wordle-text); 
+  font-weight: bold; 
+}
+.repeat-gray { 
+  background-color: var(--wordle-gray) !important; 
+  color: var(--wordle-text); 
+  opacity: 0.8; 
+}
+
+/* 2. Table Core Structure */
+.wordle-table { 
+  width: 100%; 
+  min-width: 350px;
+  border-collapse: collapse; 
+  margin-top: 10px;
+  table-layout: auto;
+  display: table !important; 
+}
+
+.wordle-table tr {
+    display: table-row !important;
+}
+
+.wordle-table td, 
+.wordle-table th { 
+  padding: 12px 10px; 
+  border: 1px solid var(--wordle-table-border); 
+  text-align: center;
+  background-color: transparent; /* Allows row color to show through */
+  color: var(--wordle-text);
+  display: table-cell !important; 
+  vertical-align: middle;
+}
+
+/* 3. Specific Table Elements */
+.wordle-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--wordle-table); 
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.wordle-table td {
+    padding: 8px 15px;
+    border-bottom: 1.5px solid var(--wordle-table-border);
+    text-transform: uppercase;
+    font-family: 'Clear Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+.wordle-table td strong {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.wordle-table td:nth-child(2) {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 4. Column Widths */
+.wordle-table th:nth-child(1) { width: 35%; }
+.wordle-table th:nth-child(2) { width: 30%; }
+.wordle-table th:nth-child(3) { width: 35%; }
+
+/* Adaptive Column Logic */
+.wordle-table tr th:only-child, 
+.wordle-table th:first-child:nth-last-child(2),
+.wordle-table th:first-child:nth-last-child(2) ~ th {
+    width: 50%;
+}
+
+/* 5. Tool Cards Grid */
+.wordle-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.tool-card {
+    background: var(--wordle-table); 
+    border: 1px solid var(--wordle-table-border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--wordle-text);
+    transition: transform 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: #2c3e50;
+}
+
+.word-display {
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: var(--wordle-green);
+}
+
+/* 6. Controls & Sticky Header */
+.utility-controls {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-color); 
+    z-index: 100; 
+    padding: 15px 0;
+    margin-top: -1px; 
+    border-bottom: 1px solid var(--wordle-table-border);
+}
+
+#wordSearch {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 7. Buttons */
+.btn-primary, .btn-secondary, .btn-thirdly {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-primary { background: var(--wordle-green); color: var(--wordle-button-text); }
+.btn-secondary { background: var(--wordle-gray); color: var(--wordle-button-text); }
+.btn-thirdly { background: var(--wordle-yellow); color: var(--wordle-button-text); }
+
+.filter-btn { transition: opacity 0.2s; }
+.filter-btn:hover { opacity: 0.8; }
+
+.btn-gold { background-color: var(--wordle-yellow); }
+.btn-gray { background-color: var(--wordle-gray); }
+.btn-green { background-color: var(--wordle-green); }
+
+/* 8. Results Container */
+#resultsContainer {
+    overflow-x: auto;
+    overflow-y:auto;
+    border: 1px solid var(--wordle-table-border);
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 15px; 
+    box-sizing: border-box;
+    max-height: 500px; 
+}
+
+/* 9. Mobile Adjustments */
+@media screen and (max-width: 600px) {
+    .wordle-table { min-width: 300px; }
+    
+    .filter-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        display: flex !important;
+        justify-content: flex-start;
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .wordle-v2-grid { grid-template-columns: 1fr; }
+
+    .wordle-table td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+    .wordle-table td strong { font-size: .95rem; }
+    .wordle-table td:last-child { white-space: nowrap; }
+}
+
+.divider { margin: 40px 0; border: 0; border-top: 1px solid #eee; }
+

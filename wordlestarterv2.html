@@ -2,15 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<div class="starter-card">
-    <h2 id="starterDisplay">READY?</h2>
-    <button id="randomBtn">Generate Random Word</button>
-</div>
-
-<script src="js/starter-utility.js"></script>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Word Utility</title>
+    <link rel="stylesheet" href="wordlev2.css">
 </head>
 <body>
-    
+        <main class="container">
+        <h1 style="text-align: center;">Wordle Starter Utility v2</h1>
+
+            <div class="wordle-v2-grid">
+            <div class="tool-card">
+                <h3>Random Starter</h3>
+                    <p>No repeats & no past winners</p>
+                <h2 id="starterDisplay" class="word-display">READY?</h2>
+                <button id="randomBtn" class="btn-primary">Generate Word</button>
+            </div>
+
+            <div class="tool-card">
+                <h3>Groundhog Search</h3>
+                    <p>Top frequency "Groundhog Day" words</p>
+                <button id="fetchGroundhog" class="btn-secondary">Load Groundhog Day</button>
+            </div>
+
+            <div class="tool-card">
+                <h3>WordleBot 3200</h3>
+                <p>Full dictionary with win/repeat flags</p>
+            <div style="font-size: 0.8rem; margin-bottom: 10px;">
+                <div>Dictionary: <span id="botDictUpdate" style="color: #6aaa64;">Loading...</span></div>
+                <div>Winners Synced: <span id="botWinnerUpdate" style="color: #c9b458;">Loading...</span></div>
+            </div>
+            <button id="showWordleBot" class="btn-thirdly">Load Bot Dictionary</button>
+            </div>
+        </div>
+
+    <hr class="divider">
+
+    <div id="interactiveArea" style="display: none;">
+        <div class="utility-controls">
+            <input type="text" id="wordSearch" placeholder="🔍 Filter by word, date, or status (e.g., 'winner')...">
+            <div class="filter-buttons" style="margin-bottom: 15px; display: flex;">
+                <button class="filter-btn" data-filter="all">All Words</button>
+                <button class="filter-btn btn-gold" data-filter="winner">Winners</button>
+                <button class="filter-btn btn-gray" data-filter="repeats">Repeats</button>
+                <button class="filter-btn btn-green" data-filter="available">Available</button>
+            </div>
+            <p id="resultCount" style="color: #818384; margin-bottom: 10px; font-size: 0.9rem;">
+                Showing --- words
+            </p>
+        </div>
+        
+        <div id="resultsContainer"></div>
+    </div>
+
+    </main>
+<script src="/wordle-utility.js"></script>   
 </body>
 </html>
