@@ -2,6 +2,8 @@
 
 A specialized data utility designed to help Wordle players find the perfect starting word. This tool tracks the full Wordle dictionary, identifies past winners, and provides curated lists for specific themes.
 
+https://whataboutjohn.com/project3wordlestarterv2.html
+
 ## 🚀 Features
 
 * **Random Starter Generator:** Provides a high-probability starting word, filtered to ensure no repeats and no past winners.
@@ -38,11 +40,6 @@ The utility maintains a synced dictionary to stay up-to-date with the official N
 3. **Filter Results:** Use the toggle buttons (**Winners**, **Repeats**, **Available**) to clean up the data table for easier browsing.
 4. **Load Groundhog Day** View all words that users selected as a starter word on Groundhog Day.
 
-Since you have uploaded the `.csv` files as well as the `.sql` exports, it’s definitely worth mentioning them! It gives users two ways to get your data: they can either run the SQL scripts directly or import the CSVs into their preferred spreadsheet or database tool.
-
-Here is a revised **File Breakdown** section that includes both the PHP logic and the data exports (SQL/CSV).
-
----
 
 ## 📂 Project Structure & File Breakdown
 
